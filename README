@@ -1,170 +1,21 @@
-NAME
-    Acme::Time::Baby -- Tell time little children can understand
-
-SYNOPSIS
-        use Acme::Time::Baby;
-        print babytime;           #  Prints current time.
-
-        use Acme::Time::Baby language => 'du';
-        print babytime "10:15";   #  Prints a quarter past ten in a way
-                                  #  little Dutch children can understand.
-
-DESCRIPTION
-    Using this module gives you the function "babytime", which will return
-    the time in the form The big hand is on the ten and the little hand is
-    on the three. If no argument to "babytime" is given, the current time is
-    used, otherwise a time of the form *hh:mm* can be passed. Both 12 and 24
-    hour clocks are supported.
-
-    When using the module, various options can be given. The following
-    options can be passed:
-
-    language LANG
-        The language the time should be told in. The following languages are
-        currently supported:
-
-          en             English (this is the default)
-          br             Brazilian Portuguese.
-          de             German.
-          du             Dutch.
-          es             Spanish.
-          fr             French.
-          it             Italian.
-          no             Norwegian.
-          se             Swedish.
-          swedish chef   Swedish Chef (from the Muppets).
-          warez          l44+.
-
-        If no language argument is given, English is used.
-
-        Note that some languages use accented letters. The returned
-        sentences are correct for an ISO 8859-1 platform.
-
-    format STRING
-        This is the format used to represent the time. It will be passed to
-        "sprintf", and it should have two %s formatting codes. The other two
-        arguments to "sprintf" are the position of the minute hand (the big
-        hand) and the hour hand (the little hand). If you have perl 5.8 or
-        above, you could use "%2$s" and "%1$s" to reverse the order.
-
-    number ARRAYREF
-        An array with the names of the numbers one to twelve, to be used in
-        the formatted time.
-
-    noimport EXPR
-        By default, the sub "babytime" will be exported to the calling
-        package. If for some reason the calling package does not want to
-        import the sub, there are two ways to prevent this. Either use "use
-        Acme::Time::Baby ()", which will prevent "Acme::Time::Baby::import"
-        to be called, or pass "noimport" followed by a true value as
-        arguments to the "use" statement.
-
-PACKAGE NAME
-    It has been said this package should be named 'Acme::Time::Toddler',
-    because it's the language toddlers speak, and not babies.
-
-    However, the idea of this package is based on an X application the
-    author saw more than 10 years before this package was written. It would
-    display a clock, telling the current time, in a myriad of languages. One
-    of the languages was *babytalk*, and used a language very similar to the
-    one in this package. Hence the name of this package.
-
-TODO
-    Support for more languages.
-
-AUTHOR
-    Abigail, *acme-time-baby@abigail.nl*.
-
-HISTORY
-        $Log: Baby.pm,v $
-        Revision 2.101  2003/02/23 22:22:16  abigail
-        Patch for German (Philip Newton)
-
-        Revision 2.100  2003/02/13 13:01:34  abigail
-        - Upped version to 2.100, to make really sure CPAN updates older
-          versions of the module.
-        - Added Spanish. (Nick Tonkin)
-        - 17295 tests in 13 files.
-
-        Revision 1.12  2002/12/13 16:26:03  abigail
-        Nothing really, just generating a new version.
-        Bloody CPAN/PAUSE doesn't think 1.11 is larger than 1.7.
-
-        Revision 1.11  2002/09/09 19:29:01  abigail
-        Brazilian Portuguese added (Flavio S. Glock)
-
-        Revision 1.10  2002/08/20 14:40:26  abigail
-        Documented new language (Swedish).
-        Fixed email address.
-
-        Revision 1.9  2002/08/20 14:34:52  abigail
-        Fixed the German:
-           + capitalized the numbers
-           + fixed the gender of the numbers.
-        (Torsten Hofmann and Andre Bonhote)
-
-        Added support for Swedish (cpan #718)
-
-        Revision 1.8  2002/08/20 13:58:08  abigail
-        Moved from RCS to CVS.
-
-        Revision 1.7  2002/05/15 11:37:39  abigail
-        Fixed regex extracting version number from RCS Revision line.
-        (Tim Heaney)
-
-        Revision 1.6  2002/05/13 23:06:23  abigail
-        Added support for the following languages:
-            German (de)   (Tim Heaney)
-            French (fr)   (Tim Heaney)
-            Norwegian (no) (Peter J. Acklam)
-            Italian (it)  (Andrea Spinelli)
-
-        Revision 1.5  2002/04/26 16:10:49  abigail
-        Added INSTALLATION topic to the POD, so we can do
-        pod2text Baby.pm > README
-
-        Revision 1.4  2002/04/26 12:28:56  abigail
-        Added support for 'Swedish chef' and 'Warez' languages.
-
-        Revision 1.3  2002/04/25 23:35:24  abigail
-        Added a check to see whether at least 12 numbers have been passed.
-
-        Revision 1.2  2002/04/25 23:32:06  abigail
-        Get rid of Exporter.
-        Support for Dutch.
-        Customizable format and numbers.
-        PODdified.
-
-        Revision 1.1  2002/04/25 22:14:39  abigail
-        Initial revision
-
-LICENSE
-    This program is copyright 2002 by Abigail.
-
-    Permission is hereby granted, free of charge, to any person obtaining a
-    copy of this software and associated documentation files (the
-    "Software"), to deal in the Software without restriction, including
-    without limitation the rights to use, copy, modify, merge, publish,
-    distribute, sublicense, and/or sell copies of the Software, and to
-    permit persons to whom the Software is furnished to do so, subject to
-    the following conditions:
-
-    The above copyright notice and this permission notice shall be included
-    in all copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-    IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-    DEALINGS IN THE SOFTWARE.
+latest version 0.01
 
 INSTALLATION
-    To install this module type the following:
 
-       perl Makefile.PL
-       make
-       make test
-       make install
+To install this module, run the following commands:
 
+	perl Build.PL
+	./Build
+	./Build test
+	./Build install
+
+DEPENDENCIES
+
+None.
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2009, Andy Armstrong
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
